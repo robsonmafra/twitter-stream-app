@@ -7,8 +7,38 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+  <div class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">
+          <h2>Twitter feed (with the word 'Java')</h2>
+        </a>
+      </div>
+      <div class="col-lg-3 pull-right">
+      <form>
+        <div class="input-group" style="margin-top: 15px;">
+          <input type="text" name="search" class="form-control" placeholder="Search..." value="<%= params['search']%>">
+          <span class="input-group-btn">
+            <button type="submit" class="btn btn-default">Search</button>
+          </span>
+        </div>
+      </form>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <%= yield %>
+    <hr />
+    <div class="footer">
+      <p>
+        Application powered by <a href="www.linkedin.com/in/robsonvmafra/en" target="_blank">Robson Mafra</a>
+      </p>
+    </div>
+  </div>
 </body>
 </html>
