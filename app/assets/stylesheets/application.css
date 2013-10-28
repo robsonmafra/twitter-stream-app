@@ -8,6 +8,25 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
+ *= require metro-bootstrap.min
  *= require_self
  *= require_tree .
  */
+
+body {
+	margin-top: 75px;
+}
+
+.navbar-brand {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+.navbar-default {
+  background-color: #07569f;
+  border-color: #07569f;
+}
+
+.navbar {
+	opacity: 0.7;
+}
