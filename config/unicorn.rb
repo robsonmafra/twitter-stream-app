@@ -24,8 +24,8 @@ user nobody nogroup; # for systems with a "nogroup"
 # user nobody nobody; # for systems with "nobody" as a group instead
 
 # Feel free to change all paths to suite your needs here, of course
-pid /storage/log/unicorn/nginx.pid;
-error_log /storage/log/unicorn/nginx.error.log;
+pid "/storage/log/unicorn/nginx.pid";
+error_log "/storage/log/unicorn/nginx.error.log";
 
 events {
   worker_connections 1024; # increase if you have lots of clients
@@ -42,7 +42,7 @@ http {
   default_type application/octet-stream;
 
   # click tracking!
-  access_log /storage/log/unicorn/nginx.access.log combined;
+  access_log "/storage/log/unicorn/nginx.access.log";
 
   # you generally want to serve static files with nginx since neither
   # Unicorn nor Rainbows! is optimized for it at the moment
@@ -74,7 +74,7 @@ http {
     # single worker for timing out).
 
     # for UNIX domain socket setups:
-    server unix:/tmp/sockets/unicorn.sock fail_timeout=0;
+    server unix:"/tmp/sockets/unicorn.sock" fail_timeout=0;
 
     # for TCP setups, point these to your backend servers
     # server 192.168.0.7:8080 fail_timeout=0;
@@ -104,7 +104,7 @@ http {
     keepalive_timeout 5;
 
     # path for static files
-    root /storage/twitter_app/currentpublic;
+    root "/storage/twitter_app/current/public";
 
     # Prefer to serve static files directly from nginx to avoid unnecessary
     # data copies from the application server.
@@ -150,7 +150,7 @@ http {
     # Rails error pages
     error_page 500 502 503 504 /500.html;
     location = /500.html {
-      root /storage/twitter_app/current/public;
+      root "/storage/twitter_app/current/public";
     }
   }
 }
