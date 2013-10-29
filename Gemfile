@@ -18,6 +18,13 @@ gem 'jquery-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
+# Use Capistrano to deploy
+gem 'capistrano', '~> 2.15.5'
+gem 'capistrano-ext'
+
+# Use unicorn as server
+gem 'unicorn'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
