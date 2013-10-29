@@ -30,7 +30,7 @@ set :deploy_to, "/storage/twitter_app"
 namespace :deploy do
   desc "Zero-downtime restart of Unicorn"
   task :restart, :except => { :no_release => true } do
-    run "kill -s USR2 `cat /storage/log/unicorn/nginx.pid`"
+    run "kill -s USR2 `cat /storage/twitter_app/shared/pids/unicorn.pid`"
   end
 
   desc "Start unicorn"
@@ -40,6 +40,6 @@ namespace :deploy do
 
   desc "Stop unicorn"
   task :stop do
-    run "kill -s QUIT `cat /storage/log/unicorn/nginx.pid`"
+    run "kill -s QUIT `cat /storage/twitter_app/shared/pids/unicorn.pid`"
   end
 end
